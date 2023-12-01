@@ -1,11 +1,36 @@
-import React from 'react';
-
-import ButtonPage from './pages/ButtonPage';
+import { useState } from "react";
+import Dropdown from "./components/Dropdown";
+import { Option } from "./types/types";
 
 const App = () => {
+  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+
+  const handleSelect = (option: Option) => setSelectedOption(option);
+
+  const options = [
+    { label: "red", value: "red" },
+    { label: "orange", value: "orange" },
+    { label: "yellow", value: "yellow" },
+    { label: "green", value: "green" },
+    { label: "blue", value: "blue" },
+    { label: "indigo", value: "indigo" },
+    { label: "violet", value: "violet" },
+  ];
+
   return (
-    <ButtonPage />
+    <div className="flex">
+      <Dropdown
+        options={options}
+        value={selectedOption}
+        onChange={handleSelect}
+      />
+      <Dropdown
+        options={options}
+        value={selectedOption}
+        onChange={handleSelect}
+      />
+    </div>
   );
-}
+};
 
 export default App;
