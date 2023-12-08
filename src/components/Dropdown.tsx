@@ -24,6 +24,9 @@ const Dropdown = ({ options, value, onChange }: DropdownProps) => {
       }
     };
 
+    // adding third arg here to fire event capture phase of click event
+    // why: difference in time between react page re-render is LESS than time
+    // it takes for the browser event bubble phase
     document.addEventListener("click", handler, true);
 
     return () => document.removeEventListener("click", handler);
