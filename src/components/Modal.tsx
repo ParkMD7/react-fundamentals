@@ -1,11 +1,9 @@
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
-// import classNames from "classnames";
 
 interface ModalProps {
   children: any;
   actionBar: any;
-  // className: string;
   onClose: React.MouseEventHandler<HTMLDivElement>;
 }
 
