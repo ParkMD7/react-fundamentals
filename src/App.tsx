@@ -4,6 +4,7 @@ import DropdownPage from "./pages/DropdownPage";
 import ButtonPage from "./pages/ButtonPage";
 import ModalPage from "./pages/ModalPage";
 import TablePage from "./pages/TablePage";
+import CounterPage from "./pages/CounterPage";
 import Sidebar from "./components/Sidebar";
 
 const App = () => {
@@ -26,6 +27,9 @@ const App = () => {
         </Route>
         <Route pathTo="/table">
           <TablePage />
+        </Route>
+        <Route pathTo="/counter">
+          <CounterPage initialCount={0} />
         </Route>
       </div>
     </div>
