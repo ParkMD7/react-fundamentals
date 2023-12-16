@@ -23,3 +23,7 @@ export interface TableConfigItem {
   // optional fn to describe how to extract values for sorting when column is clicked
   sortValue?: (rowData: TableDataItem) => any;
 }
+
+export type SortOrder = "asc" | "desc" | null;
+
+export type SortBy = TableConfigItem["label"] | null;
