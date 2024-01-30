@@ -38,11 +38,7 @@ function Button({
       'border-red-500 bg-red-500 text-white': danger,
       'rounded-full': rounded,
       'bg-slate-50': outline,
-      'text-slate-800': outline && primary,
-      'text-slate-600': outline && secondary,
-      'text-green-800': outline && success,
-      'text-slate-500': outline && warning,
-      'text-red-800': outline && danger,
+      'text-slate-700': outline && (primary || secondary || success || warning || danger),
     }
   );
 
