@@ -36,9 +36,9 @@ function Button({
       'border-green-500 bg-green-500 text-white': success,
       'border-yellow-400 bg-yellow-400 text-white': warning,
       'border-red-500 bg-red-500 text-white': danger,
+      'text-slate-500': outline && (primary || secondary || success || warning || danger),
       'rounded-full': rounded,
       'bg-slate-50': outline,
-      'text-slate-700': outline && (primary || secondary || success || warning || danger),
     }
   );
 
