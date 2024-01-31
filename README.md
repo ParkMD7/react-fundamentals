@@ -1,11 +1,8 @@
-# React Components and State Design
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-
 ## Purpose
 
-Practicing with React components for mastering state design & play around with Tailwind
+- Practice creating simple and more complex React components to practice state design process
+- Gain experience with React Hooks (useState, useEffect, useRef, useReducer (w/ and w/out Immer) && custom hooks)
+- Play around with Tailwind CSS
 
 
 ## How to run this repo

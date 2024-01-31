@@ -1,5 +1,6 @@
 // implementation with useReducer
 import { useReducer } from "react";
+import { produce } from "immer";
 
 import Button from "../components/Button";
 import Panel from "../components/Panel";
@@ -34,7 +35,31 @@ const reducer = (state: CounterPageState, action: ActionObj) => {
     case VALUE_TO_ADD:
       return { ...state, valueToAdd: action.payload };
     case UPDATE_COUNT:
-      return { count: state.count + state.valueToAdd, valueToAdd: 0 };
+      return { ...state, count: state.count + state.valueToAdd, valueToAdd: 0 };
+    default:
+      return state;
+  }
+};
+
+// Immer library allows us to directly mutate state && we do not have to return a new value
+// We still need to return from each case so we dont fall through to the next switch statement condition
+const reducerWithImmer = (state: CounterPageState, action: ActionObj) => {
+  const { type } = action;
+
+  switch (type) {
+    case INCREMENT:
+      state.count = state.count + 1;
+      return;
+    case DECREMENT:
+      state.count = state.count - 1;
+      return;
+    case VALUE_TO_ADD:
+      state.valueToAdd = action.payload;
+      return;
+    case UPDATE_COUNT:
+      state.count = state.count + state.valueToAdd;
+      state.valueToAdd = 0;
+      return;
     default:
       return state;
   }
@@ -43,10 +68,10 @@ const reducer = (state: CounterPageState, action: ActionObj) => {
 const CounterPage = ({ initialCount }: CounterPageProps) => {
   // dispatch is our setter function for updating state with useReducer
   // calling dispatch with an argument will show up as the second arg in our reducer function (action)
-  const [state, dispatch] = useReducer(reducer, {
-    count: initialCount,
-    valueToAdd: 0,
-  });
+  // const [state, dispatch] = useReducer(reducer, { count: initialCount, valueToAdd: 0 }); // -- normal reducer
+
+  // reducer with Immer library
+  const [state, dispatch] = useReducer(produce(reducerWithImmer), { count: initialCount, valueToAdd: 0 });
 
   const { count, valueToAdd } = state;
 
