@@ -5,7 +5,12 @@ import { produce } from "immer";
 import Button from "../components/Button";
 import Panel from "../components/Panel";
 
-import { INCREMENT, DECREMENT, VALUE_TO_ADD, UPDATE_COUNT } from "../constants/constants";
+import {
+  INCREMENT,
+  DECREMENT,
+  VALUE_TO_ADD,
+  UPDATE_COUNT,
+} from "../constants/constants";
 
 interface CounterPageProps {
   initialCount: number;
@@ -71,7 +76,10 @@ const CounterPage = ({ initialCount }: CounterPageProps) => {
   // const [state, dispatch] = useReducer(reducer, { count: initialCount, valueToAdd: 0 }); // -- normal reducer
 
   // reducer with Immer library
-  const [state, dispatch] = useReducer(produce(reducerWithImmer), { count: initialCount, valueToAdd: 0 });
+  const [state, dispatch] = useReducer(produce(reducerWithImmer), {
+    count: initialCount,
+    valueToAdd: 0,
+  });
 
   const { count, valueToAdd } = state;
 

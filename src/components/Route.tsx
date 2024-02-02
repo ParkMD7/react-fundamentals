@@ -9,6 +9,6 @@ const Route = ({ pathTo, children }: AccordionProps) => {
   const { currentPath } = useNavigation();
 
   return pathTo === currentPath ? children : null;
-}
+};
 
 export default Route;

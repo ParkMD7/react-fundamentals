@@ -17,7 +17,7 @@ const Accordion = ({ items }: AccordionProps) => {
     // functional state update to prevent edge case double click bug
     setExpandedIndex((currentIndex) => {
       return currentIndex === idx ? -1 : idx;
-    })
+    });
   };
 
   const renderedItems = items.map((item, idx) => {

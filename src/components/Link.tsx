@@ -9,14 +9,19 @@ interface AccordionProps {
   activeClassName?: string;
 }
 
-const Link = ({ pathTo, children, className, activeClassName }: AccordionProps) => {
+const Link = ({
+  pathTo,
+  children,
+  className,
+  activeClassName,
+}: AccordionProps) => {
   const { navigate, currentPath } = useNavigation();
 
   const classes = classNames(
     "text-blue-500",
     currentPath === pathTo && activeClassName,
-    className,
-  )
+    className
+  );
 
   const handleClick = (event: KeyboardEvent) => {
     // if the end-user is holding down the command / control key we want to allow the browser to handle the event as normal (open link in a new tab)
@@ -25,7 +30,7 @@ const Link = ({ pathTo, children, className, activeClassName }: AccordionProps) 
     }
 
     event.preventDefault();
-    navigate(pathTo)
+    navigate(pathTo);
   };
   return (
     //  @ts-ignore

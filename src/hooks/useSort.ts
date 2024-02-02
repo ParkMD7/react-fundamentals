@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { TableConfigItem, TableDataItem, SortOrder, SortBy } from "../types/types";
+import {
+  TableConfigItem,
+  TableDataItem,
+  SortOrder,
+  SortBy,
+} from "../types/types";
 
 const useSort = (data: TableDataItem[], config: TableConfigItem[]) => {
   const [sortOrder, setSortOrder] = useState<SortOrder>(null);

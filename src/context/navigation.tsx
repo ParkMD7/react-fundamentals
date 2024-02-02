@@ -11,7 +11,7 @@ interface NavigationContextType {
 
 const NavigationContext = createContext<NavigationContextType>({
   currentPath: "/",
-  navigate: () => undefined, 
+  navigate: () => undefined,
 });
 
 const NavigationProvider = ({ children }: NavigationProps) => {

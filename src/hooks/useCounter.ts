@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 const useCounter = (initialCount: number) => {
   const [count, setCount] = useState(initialCount);
 
-  useEffect(() => {
-  }, [count]);
+  useEffect(() => {}, [count]);
 
   const increment = () => {
     setCount(count + 1);
@@ -19,11 +18,11 @@ const useCounter = (initialCount: number) => {
 
   const setCustomCount = (num: number) => {
     if (count + num <= 0) {
-      setCount(0)
+      setCount(0);
     } else {
-      setCount(count + num)
+      setCount(count + num);
     }
-  }
+  };
 
   return { count, setCustomCount, increment, decrement };
 };

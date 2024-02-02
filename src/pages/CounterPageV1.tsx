@@ -5,14 +5,14 @@ import useCounter from "../hooks/useCounter";
 import Button from "../components/Button";
 import Panel from "../components/Panel";
 
-
 interface CounterPageV1Props {
   initialCount: number;
 }
 
 const CounterPageV1 = ({ initialCount }: CounterPageV1Props) => {
   const [valueToAdd, setValueToAdd] = useState(0);
-  const { count, setCustomCount, increment, decrement } = useCounter(initialCount);
+  const { count, setCustomCount, increment, decrement } =
+    useCounter(initialCount);
 
   const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
     // adding "|| 0 " to protect against edge case of user deleting value in text input
@@ -51,9 +51,7 @@ const CounterPageV1 = ({ initialCount }: CounterPageV1Props) => {
           onChange={handleOnChange}
           className="p-1 m-3 bg-gray-50 border border-gray-300"
         />
-        <Button primary>
-          Add!
-        </Button>
+        <Button primary>Add!</Button>
       </form>
     </Panel>
   );
